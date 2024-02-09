@@ -10,11 +10,6 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 
-const recipeContainer = document.querySelector('.recipe');
-if (module.hot) {
-  module.hot.accept;
-}
-
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
@@ -26,10 +21,9 @@ const controlRecipe = async function () {
 
     resultView.update(model.getSearchresultPage());
     bookmarksView.update(model.state.bookmarks);
-    // renderSpinner(recipeContainer);
 
     await model.loadRecipe(id);
-    // const { recipe } = model.state;
+
     recipeView.render(model.state.recipe);
 
     /////1. Loading Recipe
